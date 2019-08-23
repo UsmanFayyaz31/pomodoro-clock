@@ -18,9 +18,10 @@ class Timer extends React.Component {
   }
 
   tick() {
-    var intMin = parseInt(this.props.data.min, 10);
-    var intSec = parseInt(this.props.data.sec, 10);
-    var breakv = parseInt(this.props.data.bLength, 10);
+    var intMin = this.props.data.min;
+    var intSec = this.props.data.sec;
+    var breakv = this.props.data.bLength;
+    var sessionv = this.props.data.sLength;
 
     if (intMin === 0 && intSec === 0 && !this.state.isBreak) {
       new Audio(sound).play();
@@ -42,7 +43,7 @@ class Timer extends React.Component {
 
       this.props.timerStates({
         type: "UPDATE",
-        min: breakv,
+        min: sessionv,
         sec: 0
       });
       return;
@@ -94,9 +95,9 @@ class Timer extends React.Component {
     return (
       <div id="timerBody">
         <h3 id="timer-label">{(this.state.isBreak) ? "Break" : "Session"}</h3>
-        <div id="timer-container" className = {(minFormat === "0") ? "warning" : null}>
+        <div id="timer-container" className={(minFormat === "0") ? "warning" : null}>
           <h1 className="timer" id="mins">{(minFormat.length === 1) ? "0" + minFormat : minFormat}</h1>
-          <h1 className="timer" style={{marginRight: "5px", marginLeft: "5px"}}>:</h1>
+          <h1 className="timer" style={{ marginRight: "5px", marginLeft: "5px" }}>:</h1>
           <h1 className="timer" id="sec">{(secFormat.length === 1) ? "0" + secFormat : secFormat}</h1>
         </div>
         <div id="button-container">
