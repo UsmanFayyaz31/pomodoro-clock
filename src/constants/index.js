@@ -1,0 +1,8 @@
+export const START = "START";
+export const PAUSE = "PAUSE";
+export const RESET = "RESET";
+export const SESSIONINCREMENT = "SESSIONINCREMENT";
+export const SESSIONDECREMENT = "SESSIONDECREMENT";
+export const BREAKINCREMENT = "BREAKINCREMENT";
+export const BREAKDECREMENT = "BREAKDECREMENT";
+export const UPDATE = "UPDATE";

@@ -2,7 +2,8 @@ import React from 'react';
 import '../App.css';
 import { connect } from 'react-redux';
 import sound from '../sound/beep.mp3';
-import { timerState } from '../reducers/index'
+import { timerState } from '../reducers/index';
+import * as Constants from '../constants/index';
 
 class Timer extends React.Component {
   constructor(props) {
@@ -30,7 +31,7 @@ class Timer extends React.Component {
       })
 
       this.props.timerStates({
-        type: "UPDATE",
+        type: Constants.UPDATE,
         min: breakv,
         sec: 0
       });
@@ -42,7 +43,7 @@ class Timer extends React.Component {
       })
 
       this.props.timerStates({
-        type: "UPDATE",
+        type: Constants.UPDATE,
         min: sessionv,
         sec: 0
       });
@@ -56,7 +57,7 @@ class Timer extends React.Component {
     }
 
     this.props.timerStates({
-      type: "UPDATE",
+      type: Constants.UPDATE,
       min: intMin,
       sec: intSec
     });
@@ -64,7 +65,7 @@ class Timer extends React.Component {
 
   start() {
     if (this.state.timer === null) {
-      this.props.timerStates("START");
+      this.props.timerStates(Constants.START);
       let timer = setInterval(this.tick, 1000);
       this.setState({
         timer: timer
@@ -73,7 +74,7 @@ class Timer extends React.Component {
   }
 
   pause() {
-    this.props.timerStates("PAUSE");
+    this.props.timerStates(Constants.PAUSE);
     clearInterval(this.state.timer);
     this.setState({
       timer: null
@@ -81,7 +82,7 @@ class Timer extends React.Component {
   }
 
   stop() {
-    this.props.timerStates("RESET");
+    this.props.timerStates(Constants.RESET);
     clearInterval(this.state.timer);
     this.setState({
       timer: null,

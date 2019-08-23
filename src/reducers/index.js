@@ -1,5 +1,7 @@
+import * as Constants from '../constants/index';
+
 const initialState = {
-  type: "PAUSE",
+  type: Constants.PAUSE,
   min: 25,
   sec: 0,
   sLength: 25,
@@ -7,47 +9,47 @@ const initialState = {
 };
 
 export const timerState = (input) => {
-  if (input === "START") {
+  if (input === Constants.START) {
     return {
-      type: "START"
+      type: Constants.START
     };
-  } else if (input === "PAUSE") {
+  } else if (input === Constants.PAUSE) {
     return {
-      type: "PAUSE"
+      type: Constants.PAUSE
     };
-  } else if (input === "RESET") {
+  } else if (input === Constants.RESET) {
     return {
-      type: "RESET"
+      type: Constants.RESET
     };
-  } else if (input.type === "sessionIncrement") {
+  } else if (input.type === Constants.SESSIONINCREMENT) {
     return {
-      type: "sessionIncrement",
+      type: Constants.SESSIONINCREMENT,
       min: input.min,
       bLength: input.bLength,
       sLength: input.sLength
     }
-  } else if (input.type === "sessionDecrement") {
+  } else if (input.type === Constants.SESSIONDECREMENT) {
     return {
-      type: "sessionDecrement",
+      type: Constants.SESSIONDECREMENT,
       min: input.min,
       bLength: input.bLength,
       sLength: input.sLength
     }
-  } else if (input.type === "breakIncrement") {
+  } else if (input.type === Constants.BREAKINCREMENT) {
     return {
-      type: "breakIncrement",
+      type: Constants.BREAKINCREMENT,
       bLength: input.bLength,
       sLength: input.sLength
     }
-  } else if (input.type === "breakDecrement") {
+  } else if (input.type === Constants.BREAKDECREMENT) {
     return {
-      type: "breakDecrement",
+      type: Constants.BREAKDECREMENT,
       bLength: input.bLength,
       sLength: input.sLength
     }
-  } else if (input.type === "UPDATE") {
+  } else if (input.type === Constants.UPDATE) {
     return {
-      type: "UPDATE",
+      type: Constants.UPDATE,
       min: input.min,
       sec: input.sec
     }
@@ -57,52 +59,52 @@ export const timerState = (input) => {
 const timerReducer = (state = initialState, action) => {
   var timer;
   switch (action.type) {
-    case "START":
+    case Constants.START:
       return {
-        type: "START",
+        type: Constants.START,
         min: state.min,
         sec: state.sec,
         sLength: state.sLength,
         bLength: state.bLength
       }
-    case "PAUSE":
+    case Constants.PAUSE:
       clearInterval(timer);
       return {
-        type: "PAUSE",
+        type: Constants.PAUSE,
         min: state.min,
         sec: state.sec,
         sLength: state.sLength,
         bLength: state.bLength
       };
-    case "RESET":
+    case Constants.RESET:
       return {
-        type: "RESET",
+        type: Constants.RESET,
         min: 25,
         sec: 0,
         sLength: 25,
         bLength: 5
       };
-    case "sessionIncrement":
-    case "sessionDecrement":
+    case Constants.SESSIONINCREMENT:
+    case Constants.SESSIONDECREMENT:
       return {
-        type: "PAUSE",
+        type: Constants.PAUSE,
         min: action.min,
         sec: 0,
         sLength: action.sLength,
         bLength: action.bLength
       };
-    case "breakIncrement":
-    case "breakDecrement":
+    case Constants.BREAKINCREMENT:
+    case Constants.BREAKDECREMENT:
       return {
-        type: "PAUSE",
+        type: Constants.PAUSE,
         min: state.min,
         sec: state.sec,
         sLength: action.sLength,
         bLength: action.bLength
       };
-    case "UPDATE":
+    case Constants.UPDATE:
       return {
-        type: "START",
+        type: Constants.START,
         min: action.min,
         sec: action.sec,
         sLength: state.sLength,
