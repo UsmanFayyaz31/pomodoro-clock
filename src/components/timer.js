@@ -64,7 +64,7 @@ class Timer extends React.Component {
   start() {
     if (this.state.timer === null) {
       this.props.timerStates("START");
-      let timer = setInterval(this.tick, 200);
+      let timer = setInterval(this.tick, 1000);
       this.setState({
         timer: timer
       })
