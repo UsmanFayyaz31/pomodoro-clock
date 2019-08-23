@@ -16,7 +16,7 @@ class ClockBody extends React.Component {
   sessionIncrement() {
     if (this.props.data.type !== "START") {
       var sessionL = parseInt(this.props.data.sLength, 10);
-      console.log(this.props.data.sLength, this.props.data.bLength);
+      
       if (sessionL !== 60) {
         sessionL = sessionL + 1;
 
