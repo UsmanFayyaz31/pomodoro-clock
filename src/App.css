@@ -58,3 +58,9 @@ button:hover {
   cursor: pointer;
   border: 2px solid black;
 }
+
+#author {
+  width: 40%;
+  margin: 0 auto;
+  text-align: center;
+}
