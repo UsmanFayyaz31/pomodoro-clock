@@ -15,9 +15,10 @@ p{
   border-radius: 25px;
 }
 
-.warning {
-  color: red;
+.bg-color {
+  background-color: black;
 }
+
 
 #session-decrement, #break-decrement{
   margin-left: 40px; 
@@ -33,7 +34,6 @@ p{
   margin: 0 auto;
   border: 3px solid white;
   border-radius: 25px;
-  background-color: black;
 }
 
 .timer{

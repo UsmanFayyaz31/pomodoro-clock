@@ -96,17 +96,17 @@ class Timer extends React.Component {
     return (
       <div id="timerBody">
         <h3 id="timer-label">{(this.state.isBreak) ? "Break" : "Session"}</h3>
-        <div id="timer-container" className={(minFormat === "0") ? "warning" : null}>
+        <div id="timer-container" className={(this.state.isBreak) ? "bg-color" : "bg-color1"}>
           <h1 className="timer" id="mins">{(minFormat.length === 1) ? "0" + minFormat : minFormat}</h1>
-          <h1 className="timer" style={{ marginRight: "5px", marginLeft: "5px" }}>:</h1>
-          <h1 className="timer" id="sec">{(secFormat.length === 1) ? "0" + secFormat : secFormat}</h1>
-        </div>
-        <div id="button-container">
-          <button id="start" onClick={this.start}>start</button>
-          <button id="pause" onClick={this.pause}>pause</button>
-          <button id="reset" onClick={this.stop}>reset</button>
-        </div>
+        <h1 className="timer" style={{ marginRight: "5px", marginLeft: "5px" }}>:</h1>
+        <h1 className="timer" id="sec">{(secFormat.length === 1) ? "0" + secFormat : secFormat}</h1>
       </div>
+      <div id="button-container">
+        <button id="start" onClick={this.start}>start</button>
+        <button id="pause" onClick={this.pause}>pause</button>
+        <button id="reset" onClick={this.stop}>reset</button>
+      </div>
+      </div >
     );
   }
 }
