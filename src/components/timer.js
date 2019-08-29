@@ -102,9 +102,9 @@ class Timer extends React.Component {
         <h1 className="timer" id="sec">{(secFormat.length === 1) ? "0" + secFormat : secFormat}</h1>
       </div>
       <div id="button-container">
-        <button id="start" onClick={this.start}>start</button>
-        <button id="pause" onClick={this.pause}>pause</button>
-        <button id="reset" onClick={this.stop}>reset</button>
+        <button id="start" onClick={this.start}>Start</button>
+        <button id="pause" onClick={this.pause}>Pause</button>
+        <button id="reset" onClick={this.stop}>Reset</button>
       </div>
       </div >
     );
