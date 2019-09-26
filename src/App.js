@@ -12,8 +12,8 @@ function App() {
         <Timer />
       </div>
       <div id="author">
-        <p>Designed and Coded by</p> <br />
-        <a href="https://github.com/UsmanFayyaz/pomodoro-clock">Usman Fayyaz</a>
+        <p>Designed and Coded by <b>Usman Fayyaz</b>.</p> <br />
+        <a href="https://github.com/UsmanFayyaz/pomodoro-clock">Link to github repository.</a>
       </div>
     </div>
   );
